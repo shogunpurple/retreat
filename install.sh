@@ -2,8 +2,14 @@ curl https://raw.githubusercontent.com/shogunpurple/retreat/master/retreat -o /u
 
 chmod +rx /usr/local/bin/retreat
 
-echo 'alias retreat=". retreat"' >> ~/.zshrc
-echo 'alias retreat=". retreat"' >> ~/.bashrc
-source ~/.zshrc
-source ~/.bashrc
+alias='alias retreat=". retreat"'
+
+if [[ $SHELL = '/bin/zsh' ]]; then
+    echo $alias >> ~/.zshrc
+  else 
+    echo $alias >> ~/.bashrc
+fi
+
+echo "Installation complete! source your .bashrc or .zshrc, or open a terminal to start using retreat. Check out the docs at https://github.com/shogunpurple/retreat."
+
 
