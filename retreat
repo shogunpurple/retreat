@@ -1,0 +1,15 @@
+#!/usr/bin/env bash 
+
+original_dir=$(pwd)
+
+while :
+do 
+  search_dir=$(find ~+ -name $1 -maxdepth 1 -type d)
+  if [[ -n $search_dir ]]; then 
+    pushd $original_dir
+    pushd $search_dir
+    break
+  else
+    pushd ..
+  fi
+done
