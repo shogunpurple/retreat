@@ -2,14 +2,24 @@
 
 original_dir=$(pwd)
 
+max_levels=10
+levels_searched=0
+
 while :
 do 
   search_dir=$(find ~+ -name $1 -maxdepth 1 -type d)
+  if [[ "$PWD" = "/" ]] || [[ $levels_searched = $max_levels ]]; then
+    echo "Directory not found."
+    cd $original_dir
+    break
+  fi
+
   if [[ -n $search_dir ]]; then 
-    pushd $original_dir
-    pushd $search_dir
+    cd $original_dir
+    cd $search_dir
     break
   else
-    pushd ..
+    ((levels_searched+=1))
+    cd ..
   fi
 done
