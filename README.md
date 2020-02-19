@@ -12,7 +12,7 @@ I always found myself deep in directory structures, especially when working with
 
 ### Installation
 
-`retreat` is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`.
+`retreat` is installed by running the following command in your terminal. You can install `retreat` via the command-line with `curl`.
 
 #### via curl
 
