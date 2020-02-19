@@ -5,6 +5,11 @@ original_dir=$(pwd)
 max_levels=10
 levels_searched=0
 
+if [[ -z $1 ]]; then
+  echo "No directory provided."
+  return
+fi
+
 while :
 do 
   search_dir=$(find ~+ -name $1 -maxdepth 1 -type d)
